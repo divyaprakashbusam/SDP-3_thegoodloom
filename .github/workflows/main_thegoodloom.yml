@@ -27,9 +27,10 @@ jobs:
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
-          name: java-app
-          needs: build
-          path: '${{ github.workspace }}/target/*.war'
+           name: build
+           path: build
+ 
+
 
   deploy:
     runs-on: windows-latest
