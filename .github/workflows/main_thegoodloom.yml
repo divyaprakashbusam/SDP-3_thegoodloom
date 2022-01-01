@@ -49,5 +49,5 @@ jobs:
         with:
           app-name: 'thegoodloom'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_DF9DE756C3BC49E4BAED448D65A9313D }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3353BE7649ED440CBEA2954CAD2065D5 }}
           package: '*.war'
