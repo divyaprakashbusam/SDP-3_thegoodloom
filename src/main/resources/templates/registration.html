@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<title>Signup</title>
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="css/sourcesanspro-font.css">
+	<!-- Main Style Css -->
+    <link rel="stylesheet" href="css/styles.css"/>
+    <link href="/js/aos/aos.css" rel="stylesheet">
+  <link href="/js/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/js/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/js/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="/js/remixicon/remixicon.css" rel="stylesheet">
+  <link href="/js/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="/css/style.css" rel="stylesheet">
+  
+  
+</head>
+<header id="header" class="header fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <img src="/images/tgl-logo-new.png" alt="">
+      </a>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="getstarted scrollto" href="/">Home</a></li>
+          
+ 
+          <li><a class="getstarted scrollto" href="/registration">Signup</a></li>
+           <li><a class="getstarted scrollto" href="/login">Login</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+<body class="form-v8">
+	<div class="page-content">
+		<div class="form-v8-content">
+			<div class="form-left">
+				<img src="/images/register1.jpg" alt="form">
+			</div>
+			<div class="form-right">
+			<div th:if="${param.success}">
+					<div class="alert alert-info">You've successfully registered!</div>
+				</div>
+				<div class="tab">
+					<div class="tab-inner">
+						<button class="tablinks" onclick="openCity(event, 'sign-up')" id="defaultOpen">Sign Up</button>
+					</div>
+				</div>
+				<form th:action="@{/registration}" method="post" th:object="${user}" class="form-detail">
+					<div class="tabcontent" id="sign-up">
+						<div class="form-row">
+							<label class="form-row-inner">
+								<input type="text" class="input-text" th:field="*{firstname}" required>
+								<span class="label">First Name</span>
+		  						<span class="border"></span>
+							</label>
+						</div>
+						<div class="form-row">
+							<label class="form-row-inner">
+								<input type="text" class="input-text" th:field="*{lastname}" required>
+								<span class="label">Last Name</span>
+		  						<span class="border"></span>
+							</label>
+						</div>
+						<div class="form-row">
+							<label class="form-row-inner">
+								<input type="email" th:field="*{email}" class="input-text" required>
+								<span class="label">E-Mail</span>
+		  						<span class="border"></span>
+							</label>
+						</div>
+				
+						<div class="form-row">
+							<label class="form-row-inner">
+								<input type="password" th:field="*{password}" class="input-text" required>
+								<span class="label">Password</span>
+								<span class="border"></span>
+							</label>
+						</div>
+						<div class="form-row-last">
+							<input type="submit" name="register" class="register" value="Register"><br>
+							<span>Already registered? <a href="/" th:href="@{/login}" style="color:white">Login here</a></span>
+						</div>
+					</div>
+				</form>
+				
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		function openCity(evt, cityName) {
+		    var i, tabcontent, tablinks;
+		    tabcontent = document.getElementsByClassName("tabcontent");
+		    for (i = 0; i < tabcontent.length; i++) {
+		        tabcontent[i].style.display = "none";
+		    }
+		    tablinks = document.getElementsByClassName("tablinks");
+		    for (i = 0; i < tablinks.length; i++) {
+		        tablinks[i].className = tablinks[i].className.replace(" active", "");
+		    }
+		    document.getElementById(cityName).style.display = "block";
+		    evt.currentTarget.className += " active";
+		}
+
+		// Get the element with id="defaultOpen" and click on it
+		document.getElementById("defaultOpen").click();
+	</script>
+	<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="/js/purecounter/purecounter.js"></script>
+  <script src="/js/aos/aos.js"></script>
+  <script src="/js/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/js/glightbox/js/glightbox.min.js"></script>
+  <script src="/js/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="/js/swiper/swiper-bundle.min.js"></script>
+  <script src="/js/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="/js/main.js"></script>
+</body>
+</html>
